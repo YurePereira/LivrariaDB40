@@ -1,8 +1,8 @@
 package testebdoo;
 
 import java.util.Iterator;
-import testebdoo.model.Livro;
-import testebdoo.model.LivroDAO;
+import testebdoo.db4o.model.Livro;
+import testebdoo.db4o.model.LivroDAO;
 
 public class TesteBDOOListagem {
 
@@ -23,6 +23,7 @@ public class TesteBDOOListagem {
             System.out.printf("ISBN: %s\n\n", livro.getCd_isbn());
             
 	}
+
     }
     
 }

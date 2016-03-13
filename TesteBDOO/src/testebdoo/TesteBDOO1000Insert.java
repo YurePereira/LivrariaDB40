@@ -2,8 +2,8 @@ package testebdoo;
 
 import java.util.Date;
 import java.util.Random;
-import testebdoo.model.Livro;
-import testebdoo.model.LivroDAO;
+import testebdoo.db4o.model.Livro;
+import testebdoo.db4o.model.LivroDAO;
 
 public class TesteBDOO1000Insert {
 
