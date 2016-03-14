@@ -4,10 +4,13 @@ import java.util.Date;
 import java.util.Random;
 import testebdoo.db4o.model.Livro;
 import testebdoo.db4o.model.LivroDAO;
+import util.Cronometro;
 
 public class TesteBDOO1000Insert {
 
     public static void main(String[] args) {
+
+        Cronometro.iniciar();
 
         LivroDAO lDAO;
 
@@ -25,6 +28,12 @@ public class TesteBDOO1000Insert {
             lDAO.inserir(l);
 
         }
+
+        Cronometro.parar();
+
+        System.out.println("Tempo Inicial: " + Cronometro.tempoInicial());
+        System.out.println("Tempo Final: " + Cronometro.tempoFinal());
+        System.out.println("Tempo Total: " + Cronometro.tempoTotal());
 
     }
 

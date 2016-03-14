@@ -15,12 +15,7 @@ public class TesteBDOOListagem {
 	while (iterator.hasNext()) {
 
             Livro livro = (Livro) iterator.next();
-            
-            System.out.printf("Id: %d\n", livro.getId_livro());
-            System.out.printf("Nome: %s\n", livro.getNm_livro());
-            System.out.printf("Descrição: %s\n", livro.getDs_livro());
-            System.out.printf("Data lançamento: %s\n", livro.getDt_lancamento());
-            System.out.printf("ISBN: %s\n\n", livro.getCd_isbn());
+            livro.toString();
             
 	}
 

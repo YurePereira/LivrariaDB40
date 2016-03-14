@@ -77,4 +77,15 @@ public class Livro {
         this.fl_status = fl_status;
     }
     
+    @Override
+    public String toString() {
+        
+        return "Id: %d\n" + this.getId_livro() +
+               "Nome: %s\n" + this.getNm_livro() +
+               "Descrição: %s\n" + this.getDs_livro() +
+               "Data lançamento: %s\n" + this.getDt_lancamento() +
+               "ISBN: %s\n\n" + this.getCd_isbn();
+        
+    }
+    
 }

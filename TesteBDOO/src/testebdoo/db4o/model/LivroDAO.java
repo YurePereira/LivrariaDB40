@@ -47,19 +47,21 @@ public class LivroDAO extends DAO<Livro> {
     }
 
     @Override
-    public void atualizar(Livro o, Livro novosDados) {
+    public void atualizar(Livro o) {
     
+        Livro livroAtualizado = new Livro();
+        livroAtualizado.setId_livro(o.getId_livro());
         //Selecionar objetos livros a serem atualizados.
-        ObjectSet<Livro> lista = Conexao.getConexao().get(o);
+        ObjectSet<Livro> lista = Conexao.getConexao().get(livroAtualizado);
         
         //Fazer uma iteração em nada objeto livro.
         Iterator<Livro> iterator = lista.iterator();
 	while (iterator.hasNext()) {
               
             Livro livro = iterator.next();
-            livro.setNm_livro(novosDados.getNm_livro());
-            livro.setDs_livro(novosDados.getDs_livro());
-            livro.setCd_isbn(novosDados.getCd_isbn());
+            livro.setNm_livro(o.getNm_livro());
+            livro.setDs_livro(o.getDs_livro());
+            livro.setCd_isbn(o.getCd_isbn());
             livro.setDt_alterado(new Date(System.currentTimeMillis()));
             
             Conexao.getConexao().set(livro);
