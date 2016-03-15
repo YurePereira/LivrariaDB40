@@ -1,9 +1,12 @@
 package testebdoo.db4o.model;
 
+import model.DAO;
 import com.db4o.ObjectSet;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import model.Livro;
+import testebdoo.db4o.model.Conexao;
 
 public class LivroDAO extends DAO<Livro> {
 

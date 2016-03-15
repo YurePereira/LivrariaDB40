@@ -1,6 +1,6 @@
 package testebdoo;
 
-import testebdoo.db4o.model.Livro;
+import model.Livro;
 import testebdoo.db4o.model.LivroDAO;
 import util.Cronometro;
 

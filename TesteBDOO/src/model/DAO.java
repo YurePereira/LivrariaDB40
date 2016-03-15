@@ -1,8 +1,9 @@
-package testebdoo.db4o.model;
+package model;
 
 import java.util.List;
+import testebdoo.db4o.model.Conexao;
 
-abstract class DAO<E> {
+public abstract class DAO<E> {
     
     protected Conexao conn;
     

@@ -2,6 +2,7 @@ package util;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Cronometro {
 
@@ -35,13 +36,10 @@ public class Cronometro {
     }
 
     public static String tempoTotalToDate() {
-        
-        long segundos = tempoTotal() / 1000;
-        long s = segundos / 60;
-        long m = (segundos / 60) % 60;
-        long h = (segundos / (60 * 60)) % 24;
-        long ms = h % 1000;
-        return String.format("%d:%02d:%02d:%03d", h,m,s,ms);
+
+        Date date = new Date(tempoTotal());
+        SimpleDateFormat formatohora = new SimpleDateFormat("HH:mm:ss:SSS");
+        return formatohora.format(date);
         
     }
     

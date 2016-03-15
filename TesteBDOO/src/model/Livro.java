@@ -1,4 +1,4 @@
-package testebdoo.db4o.model;
+package model;
 
 import java.util.Date;
 

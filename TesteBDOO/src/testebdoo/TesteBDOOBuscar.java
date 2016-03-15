@@ -2,7 +2,7 @@ package testebdoo;
 
 import java.util.Iterator;
 import java.util.List;
-import testebdoo.db4o.model.Livro;
+import model.Livro;
 import testebdoo.db4o.model.LivroDAO;
 
 public class TesteBDOOBuscar {

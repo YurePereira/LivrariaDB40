@@ -1,7 +1,7 @@
 package testebdoo;
 
 import java.util.Iterator;
-import testebdoo.db4o.model.Livro;
+import model.Livro;
 import testebdoo.db4o.model.LivroDAO;
 
 public class TesteBDOOListagem {

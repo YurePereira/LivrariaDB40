@@ -2,7 +2,7 @@ package testebdoo;
 
 import java.util.Date;
 import java.util.Random;
-import testebdoo.db4o.model.Livro;
+import model.Livro;
 import testebdoo.db4o.model.LivroDAO;
 import util.Cronometro;
 
@@ -14,7 +14,7 @@ public class TesteBDOO1000Insert {
 
         LivroDAO lDAO;
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
 
             lDAO = new LivroDAO();
             Random rd = new Random();
@@ -33,7 +33,7 @@ public class TesteBDOO1000Insert {
 
         System.out.println("Tempo Inicial: " + Cronometro.tempoInicial());
         System.out.println("Tempo Final: " + Cronometro.tempoFinal());
-        System.out.println("Tempo Total: " + Cronometro.tempoTotal());
+        System.out.println("Tempo Total: " + Cronometro.tempoTotalToDate());
 
     }
 
