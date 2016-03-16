@@ -21,11 +21,12 @@ public class TesteDBRL1000Update {
 
             Livro l = new Livro();
             l.setId_livro(i);
-            l.setNm_livro("Java Orientado a objetos" + rd.nextInt());
-            l.setDs_livro("Descricao Java Orientado a objetos" + rd.nextInt());
-            l.setDt_registrado(new Date());
+            l.setNm_livro("Java Orientado a objetos 2" + rd.nextInt());
+            l.setDs_livro("Descricao Java Orientado a objetos 2" + rd.nextInt());
+            l.setDt_lancamento(new Date());
+            l.setDt_alterado(new Date());
 
-            lDAO.inserir(l);
+            lDAO.atualizar(l);
 
         }
 

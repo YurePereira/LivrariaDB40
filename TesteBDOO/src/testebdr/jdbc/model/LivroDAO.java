@@ -20,7 +20,7 @@ public class LivroDAO extends DAO<Livro> {
     private final String INSERT = "INSERT INTO livro"
             + "(id_livro, nm_livro, ds_livro, cd_isbn, dt_lancamento, dt_registrado) VALUES "
             + "(?,?,?,?,?,?)";
-    private final String UPDATE = "UPDATE livro"
+    private final String UPDATE = "UPDATE livro "
             + "SET nm_livro = ?, ds_livro = ?, cd_isbn = ?, dt_lancamento = ?, dt_alterado = ?"
             + " WHERE id_livro = ?";
     private final String DELETE = "DELETE FROM livro "
@@ -81,8 +81,8 @@ public class LivroDAO extends DAO<Livro> {
             preparedStatement.setString(1, livro.getNm_livro());
             preparedStatement.setString(2, livro.getDs_livro());
             preparedStatement.setString(3, livro.getCd_isbn());
-            preparedStatement.setDate(4, (java.sql.Date) livro.getDt_lancamento());
-            preparedStatement.setDate(5, (java.sql.Date) new Date());
+            preparedStatement.setTimestamp(4, new Timestamp(livro.getDt_lancamento().getTime()));
+            preparedStatement.setTimestamp(5, new Timestamp(new Date().getTime()));
             preparedStatement.setInt(6, livro.getId_livro());
             //Executar a afirmação insert
             preparedStatement.executeUpdate();
