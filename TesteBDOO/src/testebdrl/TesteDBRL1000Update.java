@@ -1,12 +1,12 @@
-package testebdoo;
+package testebdrl;
 
 import java.util.Date;
 import java.util.Random;
 import model.Livro;
-import testebdoo.db4o.model.LivroDAO;
+import testebdr.jdbc.model.LivroDAO;
 import util.Cronometro;
 
-public class TesteBDOO1000Insert {
+public class TesteDBRL1000Update {
 
     public static void main(String[] args) {
 
@@ -36,5 +36,5 @@ public class TesteBDOO1000Insert {
         System.out.println("Tempo Total: " + Cronometro.tempoTotalToDate());
 
     }
-
+    
 }

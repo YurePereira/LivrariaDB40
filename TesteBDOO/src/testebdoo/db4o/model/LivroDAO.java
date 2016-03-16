@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import model.Livro;
-import testebdoo.db4o.model.Conexao;
 
 public class LivroDAO extends DAO<Livro> {
 
@@ -74,7 +73,7 @@ public class LivroDAO extends DAO<Livro> {
     }
 
     @Override
-    public List<Livro> deletar(Livro o) {
+    public void deletar(Livro o) {
         
         //Selecionar objetos livros a serem atualizados.
         ObjectSet<Livro> lista = Conexao.getConexao().get(o);
@@ -87,8 +86,6 @@ public class LivroDAO extends DAO<Livro> {
             Conexao.getConexao().delete(livro);
             
         }
-    
-        return lista;
         
     }
 

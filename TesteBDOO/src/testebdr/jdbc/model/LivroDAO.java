@@ -112,7 +112,7 @@ public class LivroDAO extends DAO<Livro> {
     }
 
     @Override
-    public List<Livro> deletar(Livro livro) {
+    public void deletar(Livro livro) {
         
         List<Livro> list = null;
         
@@ -128,8 +128,6 @@ public class LivroDAO extends DAO<Livro> {
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
         }
-        
-        return list;
     
     }
 
@@ -174,14 +172,13 @@ public class LivroDAO extends DAO<Livro> {
     @Override
     public List<Livro> buscar() {
     
-        List<Livro> list = new ArrayList();
+        List<Livro> list = new ArrayList<Livro>();
         conn = Conexao.getConexao();
         ResultSet rs = null;
         
         try {
             
             statement = conn.createStatement();
-            
             rs = statement.executeQuery(SELECT_ALL);
             
             while (rs.next()) {

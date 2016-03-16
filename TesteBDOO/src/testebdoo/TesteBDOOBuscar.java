@@ -1,7 +1,6 @@
 package testebdoo;
 
 import java.util.Iterator;
-import java.util.List;
 import model.Livro;
 import testebdoo.db4o.model.LivroDAO;
 
