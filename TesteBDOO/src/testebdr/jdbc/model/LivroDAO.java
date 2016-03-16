@@ -41,8 +41,8 @@ public class LivroDAO extends DAO<Livro> {
             preparedStatement.setString(2, livro.getNm_livro());
             preparedStatement.setString(3, livro.getDs_livro());
             preparedStatement.setString(4, livro.getCd_isbn());
-            preparedStatement.setDate(5, (java.sql.Date) livro.getDt_lancamento());
-            preparedStatement.setDate(6, (java.sql.Date) new Date());
+            preparedStatement.setDate(5, (java.sql.Date) livro.getDt_lancamento()); 
+            preparedStatement.setTimestamp(6, new Timestamp(new Date().getTime()));
             //Executar a afirmação insert
             preparedStatement.executeUpdate();
 

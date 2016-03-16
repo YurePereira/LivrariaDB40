@@ -12,11 +12,10 @@ public class TesteBDOO1000Insert {
 
         Cronometro.iniciar();
 
-        LivroDAO lDAO;
+        LivroDAO lDAO = new LivroDAO();
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10; i++) {
 
-            lDAO = new LivroDAO();
             Random rd = new Random();
 
             Livro l = new Livro();

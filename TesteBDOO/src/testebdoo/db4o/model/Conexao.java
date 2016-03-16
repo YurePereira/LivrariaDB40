@@ -5,13 +5,9 @@ import com.db4o.ObjectContainer;
 
 public final class Conexao {
 
-    public static ObjectContainer db;
+    private static ObjectContainer db;
     
-    public Conexao() {
-        this.conectar();
-    }
-
-    public void conectar() {
+    public static void conectar() {
         db = Db4o.openFile("livraria.yap");
     }
 

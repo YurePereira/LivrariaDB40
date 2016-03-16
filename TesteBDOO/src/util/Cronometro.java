@@ -19,14 +19,14 @@ public class Cronometro {
 
     public static String tempoInicial() {
     
-        SimpleDateFormat formatohora = new SimpleDateFormat("HH:mm:ss:SS");
+        SimpleDateFormat formatohora = new SimpleDateFormat("mm:ss:SS");
         return formatohora.format(inicio);
     
     }
 
     public static String tempoFinal() {
         
-        SimpleDateFormat formatohora = new SimpleDateFormat("HH:mm:ss:SS");
+        SimpleDateFormat formatohora = new SimpleDateFormat("mm:ss:SS");
         return formatohora.format(fim);
     
     }
@@ -38,7 +38,7 @@ public class Cronometro {
     public static String tempoTotalToDate() {
 
         Date date = new Date(tempoTotal());
-        SimpleDateFormat formatohora = new SimpleDateFormat("HH:mm:ss:SSS");
+        SimpleDateFormat formatohora = new SimpleDateFormat("mm:ss:SSS");
         return formatohora.format(date);
         
     }

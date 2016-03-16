@@ -1,5 +1,6 @@
 package testebdoo.db4o.model;
 
+import com.db4o.ObjectContainer;
 import model.DAO;
 import com.db4o.ObjectSet;
 import java.util.Date;
@@ -9,13 +10,20 @@ import model.Livro;
 
 public class LivroDAO extends DAO<Livro> {
 
+    private ObjectContainer conn;
+    
+    public LivroDAO() {
+        Conexao.conectar();
+        conn = Conexao.getConexao();
+    }
+    
     @Override
     public void inserir(Livro livro) {
         
         try {
-            Conexao.getConexao().set(livro);
+            conn.set(livro);
         } finally {
-            Conexao.desconectar();
+            //Conexao.desconectar();
         }
     
     }
@@ -26,7 +34,7 @@ public class LivroDAO extends DAO<Livro> {
         ObjectSet<Livro> lista;
         
         try {
-            lista = Conexao.getConexao().get(livro);
+            lista = conn.get(livro);
             return lista;
         } finally {
             //Conexao.desconectar();
@@ -40,7 +48,7 @@ public class LivroDAO extends DAO<Livro> {
         ObjectSet<Livro> lista;
         
         try {
-            lista = Conexao.getConexao().get(Livro.class);
+            lista = conn.get(Livro.class);
             return lista;
         } finally {
             //Conexao.desconectar();
@@ -54,7 +62,7 @@ public class LivroDAO extends DAO<Livro> {
         Livro livroAtualizado = new Livro();
         livroAtualizado.setId_livro(o.getId_livro());
         //Selecionar objetos livros a serem atualizados.
-        ObjectSet<Livro> lista = Conexao.getConexao().get(livroAtualizado);
+        ObjectSet<Livro> lista = conn.get(livroAtualizado);
         
         //Fazer uma iteração em nada objeto livro.
         Iterator<Livro> iterator = lista.iterator();
@@ -76,7 +84,7 @@ public class LivroDAO extends DAO<Livro> {
     public void deletar(Livro o) {
         
         //Selecionar objetos livros a serem atualizados.
-        ObjectSet<Livro> lista = Conexao.getConexao().get(o);
+        ObjectSet<Livro> lista = conn.get(o);
         
         //Fazer uma iteração em nada objeto livro.
         Iterator<Livro> iterator = lista.iterator();
