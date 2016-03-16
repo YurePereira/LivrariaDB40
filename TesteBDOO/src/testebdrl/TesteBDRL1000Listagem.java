@@ -1,25 +1,27 @@
 package testebdrl;
 
+import java.util.Iterator;
 import model.Livro;
 import testebdr.jdbc.model.LivroDAO;
 import util.Cronometro;
 
-public class TesteBDRL1000Delete {
+public class TesteBDRL1000Listagem {
 
     public static void main(String[] args) {
-        
+
         Cronometro.iniciar();
         
         LivroDAO lDAO = new LivroDAO();
         
-        for (int i = 0; i < 1000; i++) {
-                      
-            Livro livro = new Livro();
-            livro.setId_livro(i);
+        //Recuperar todos os livros com id_livro igual a 1
+        Iterator<Livro> iterator = lDAO.buscar().iterator();
+	while (iterator.hasNext()) {
 
-            lDAO.deletar(livro);      
-        }
-        
+            Livro livro = (Livro) iterator.next();
+            System.out.println(livro.toString());
+            
+	}
+
         Cronometro.parar();
         
         System.out.println("Tempo Inicial: " + Cronometro.tempoInicial());
@@ -27,5 +29,4 @@ public class TesteBDRL1000Delete {
         System.out.println("Tempo Total: " + Cronometro.tempoTotalToDate());
         
     }
-    
 }

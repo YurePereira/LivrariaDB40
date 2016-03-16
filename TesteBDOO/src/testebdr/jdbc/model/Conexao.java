@@ -20,7 +20,7 @@ public class Conexao {
             Class.forName(driverName);
 
             String serverName = "localhost";    //caminho do servidor do BD
-            String mydatabase ="poo";        //nome do seu banco de dados
+            String mydatabase ="livraria";        //nome do seu banco de dados
             String url = "jdbc:mysql://" + serverName + "/" + mydatabase;
             String username = "root";        //nome de um usuário de seu BD      
             String password = "";      //sua senha de acesso

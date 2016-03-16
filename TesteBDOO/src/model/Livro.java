@@ -80,11 +80,11 @@ public class Livro {
     @Override
     public String toString() {
         
-        return "Id: %d\n" + this.getId_livro() +
-               "Nome: %s\n" + this.getNm_livro() +
-               "Descrição: %s\n" + this.getDs_livro() +
-               "Data lançamento: %s\n" + this.getDt_lancamento() +
-               "ISBN: %s\n\n" + this.getCd_isbn();
+        return "Id: " + this.getId_livro() +
+               "\nNome: " + this.getNm_livro() +
+               "\nDescrição: " + this.getDs_livro() +
+               "\nData lançamento: " + this.getDt_lancamento() +
+               "\nISBN: " + this.getCd_isbn() + "\n";
         
     }
     

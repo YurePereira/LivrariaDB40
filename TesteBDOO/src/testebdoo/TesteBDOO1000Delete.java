@@ -12,7 +12,7 @@ public class TesteBDOO1000Delete {
         
         LivroDAO lDAO = new LivroDAO();
         
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1000; i++) {
                       
             Livro livro = new Livro();
             livro.setId_livro(i);
