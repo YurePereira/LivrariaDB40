@@ -396,6 +396,10 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         txt_tempo_update_dbrl.setText("");
         txt_tempo_delete_dbrl.setText("");
         
+        //Limpar bancos de dados
+        LivroBDOOFacade.testeLimparBanco();
+        LivroBDRLFacade.testeLimparBanco();
+        
     }//GEN-LAST:event_btn_limparActionPerformed
 
     private void txt_tempo_insert_dbooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tempo_insert_dbooActionPerformed

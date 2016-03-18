@@ -9,8 +9,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.DAO;
 import model.Livro;
 
@@ -30,12 +28,14 @@ public class LivroDAO extends DAO<Livro> {
     private final String SELECT = "SELECT * FROM livro"
             + " WHERE id_livro = ?";
     private final String SELECT_ALL = "SELECT * FROM livro";
+    private final String TRUNCATE = "TRUNCATE TABLE livro";
 
     @Override
     public void inserir(Livro livro) {
         
         try {
 
+            Conexao.conectar();
             conn = Conexao.getConexao();
             
             preparedStatement = conn.prepareStatement(INSERT);
@@ -59,7 +59,7 @@ public class LivroDAO extends DAO<Livro> {
                     System.out.println("Erro: " + ex.getMessage());
                 }
             }
-
+            
             Conexao.desconectar();
 
         }
@@ -71,6 +71,7 @@ public class LivroDAO extends DAO<Livro> {
     
         try {
 
+            Conexao.conectar();
             conn = Conexao.getConexao();
             
             preparedStatement = conn.prepareStatement(UPDATE);
@@ -108,6 +109,7 @@ public class LivroDAO extends DAO<Livro> {
         
         try {
             
+            Conexao.conectar();
             conn = Conexao.getConexao();
             
             preparedStatement = conn.prepareStatement(DELETE);
@@ -126,11 +128,12 @@ public class LivroDAO extends DAO<Livro> {
     @Override
     public List<Livro> buscar(Livro livro) {
     
-        List<Livro> list = new ArrayList<Livro>();
+        List<Livro> list = new ArrayList<>();
         ResultSet rs;
         
         try {
             
+            Conexao.conectar();
             conn = Conexao.getConexao();
             
             preparedStatement = conn.prepareStatement(SELECT);
@@ -156,9 +159,7 @@ public class LivroDAO extends DAO<Livro> {
             
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage()); 
-        } finally {
-            Conexao.desconectar();
-        }   
+        } 
         
         return list;
          
@@ -167,7 +168,8 @@ public class LivroDAO extends DAO<Livro> {
     @Override
     public List<Livro> buscar() {
     
-        List<Livro> list = new ArrayList<Livro>();
+        List<Livro> list = new ArrayList<>();
+        Conexao.conectar();
         conn = Conexao.getConexao();
         ResultSet rs = null;
         
@@ -200,6 +202,26 @@ public class LivroDAO extends DAO<Livro> {
         
         return list;
     
+    }
+    
+    public void limpar() {
+        
+        try {
+            Conexao.conectar();
+            conn = Conexao.getConexao();
+            statement = conn.createStatement();
+            statement.executeUpdate(TRUNCATE);
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage()); 
+        } finally {           
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                System.out.println("Erro: " + ex.getMessage()); 
+            }
+            Conexao.desconectar();
+        }
+        
     }
 
 }

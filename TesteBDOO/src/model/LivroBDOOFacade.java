@@ -30,6 +30,8 @@ public class LivroBDOOFacade {
 
         }
 
+        lDAO.desconectar();
+        
         crn.parar();
 
         return crn;
@@ -51,6 +53,8 @@ public class LivroBDOOFacade {
 
             lDAO.deletar(livro);      
         }
+        
+        lDAO.desconectar();
         
         crn.parar();
         
@@ -80,6 +84,8 @@ public class LivroBDOOFacade {
 
         }
         
+        lDAO.desconectar();
+        
         crn.parar();
         
         return crn;
@@ -102,6 +108,8 @@ public class LivroBDOOFacade {
             System.out.println(livro.toString());
             
 	}
+        
+        lDAO.desconectar();
         
         crn.parar();
         
@@ -129,6 +137,23 @@ public class LivroBDOOFacade {
             System.out.println(livro.toString());
 
         }
+        
+        lDAO.desconectar();
+        
+        crn.parar();
+        
+        return crn;
+        
+    }
+    
+    public static Cronometro testeLimparBanco() {
+        
+        Cronometro crn = new Cronometro();
+        
+        crn.iniciar();
+        
+        LivroDAO lDAO = new LivroDAO();
+        lDAO.limpar();
         
         crn.parar();
         

@@ -3,6 +3,7 @@ package testebdoo.db4o.model;
 import com.db4o.ObjectContainer;
 import model.DAO;
 import com.db4o.ObjectSet;
+import java.io.File;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -20,11 +21,7 @@ public class LivroDAO extends DAO<Livro> {
     @Override
     public void inserir(Livro livro) {
         
-        try {
-            conn.set(livro);
-        } finally {
-            //Conexao.desconectar();
-        }
+        conn.set(livro);
     
     }
 
@@ -33,12 +30,8 @@ public class LivroDAO extends DAO<Livro> {
     
         ObjectSet<Livro> lista;
         
-        try {
-            lista = conn.get(livro);
-            return lista;
-        } finally {
-            //Conexao.desconectar();
-        }
+        lista = conn.get(livro);
+        return lista;
         
     }
     
@@ -47,12 +40,8 @@ public class LivroDAO extends DAO<Livro> {
     
         ObjectSet<Livro> lista;
         
-        try {
-            lista = conn.get(Livro.class);
-            return lista;
-        } finally {
-            //Conexao.desconectar();
-        }
+        lista = conn.get(Livro.class);
+        return lista;
         
     }
 
@@ -95,6 +84,18 @@ public class LivroDAO extends DAO<Livro> {
             
         }
         
+    }
+    
+    public void limpar() {
+     
+        String nome = "livraria.yap";  
+        File file = new File(nome);  
+        file.delete();
+        
+    }
+    
+    public void desconectar() {
+        Conexao.desconectar();
     }
     
 }

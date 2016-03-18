@@ -3,6 +3,7 @@ package model;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Random;
+import testebdr.jdbc.model.Conexao;
 import testebdr.jdbc.model.LivroDAO;
 import util.Cronometro;
 
@@ -130,6 +131,23 @@ public class LivroBDRLFacade {
             System.out.println(livro.toString());
 
         }
+        
+        Conexao.desconectar();
+        
+        crn.parar();
+        
+        return crn;
+        
+    }
+    
+    public static Cronometro testeLimparBanco() {
+        
+        Cronometro crn = new Cronometro();
+        
+        crn.iniciar();
+        
+        LivroDAO lDAO = new LivroDAO();
+        lDAO.limpar();
         
         crn.parar();
         
