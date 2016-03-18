@@ -3,13 +3,12 @@ package testebdrl;
 import model.LivroBDRLFacade;
 import util.Cronometro;
 
-public class TesteBDRL1000Delete {
+public class TesteBDRLSelectAll {
 
     public static void main(String[] args) {
-        
-        Cronometro crn = LivroBDRLFacade.testeDelete(1000);
+
+        Cronometro crn = LivroBDRLFacade.testeSelectAll();
         System.out.println(crn.toString());
         
     }
-    
 }

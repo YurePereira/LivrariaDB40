@@ -2,44 +2,52 @@ package util;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class Cronometro {
 
-    private static Date inicio, fim, tempoTotal;
-    private static long total;
+    private Date inicio, fim, tempoTotal;
+    private long total;
 
-    public static void iniciar() {
+    public void iniciar() {
         inicio = new Date();
     }
 
-    public static void parar() {
+    public void parar() {
         fim = new Date();
     }
 
-    public static String tempoInicial() {
+    public String tempoInicial() {
     
         SimpleDateFormat formatohora = new SimpleDateFormat("mm:ss:SS");
         return formatohora.format(inicio);
     
     }
 
-    public static String tempoFinal() {
+    public String tempoFinal() {
         
         SimpleDateFormat formatohora = new SimpleDateFormat("mm:ss:SS");
         return formatohora.format(fim);
     
     }
 
-    public static long tempoTotal() {
+    public long tempoTotal() {
         return fim.getTime() - inicio.getTime();
     }
 
-    public static String tempoTotalToDate() {
+    public String tempoTotalToDate() {
 
         Date date = new Date(tempoTotal());
         SimpleDateFormat formatohora = new SimpleDateFormat("mm:ss:SSS");
         return formatohora.format(date);
+        
+    }
+    
+    @Override
+    public String toString() {
+        
+        return "Tempo Inicial: " + tempoInicial()
+             + "\nTempo Final: " + tempoFinal()
+             + "\nTempo Total: " + tempoTotalToDate();
         
     }
     

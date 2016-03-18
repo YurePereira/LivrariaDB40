@@ -9,6 +9,8 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.DAO;
 import model.Livro;
 
@@ -58,13 +60,7 @@ public class LivroDAO extends DAO<Livro> {
                 }
             }
 
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    System.out.println("Erro: " + ex.getMessage());
-                }
-            }
+            Conexao.desconectar();
 
         }
 
@@ -99,13 +95,7 @@ public class LivroDAO extends DAO<Livro> {
                 }
             }
 
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException ex) {
-                    System.out.println("Erro: " + ex.getMessage());
-                }
-            }
+            Conexao.desconectar();
 
         }
 
@@ -127,6 +117,8 @@ public class LivroDAO extends DAO<Livro> {
             
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
+        } finally {
+            Conexao.desconectar();
         }
     
     }
@@ -134,11 +126,12 @@ public class LivroDAO extends DAO<Livro> {
     @Override
     public List<Livro> buscar(Livro livro) {
     
-        List<Livro> list = new ArrayList();
-        conn = Conexao.getConexao();
-        ResultSet rs = null;
+        List<Livro> list = new ArrayList<Livro>();
+        ResultSet rs;
         
         try {
+            
+            conn = Conexao.getConexao();
             
             preparedStatement = conn.prepareStatement(SELECT);
             preparedStatement.setInt(1, livro.getId_livro());
@@ -163,7 +156,9 @@ public class LivroDAO extends DAO<Livro> {
             
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage()); 
-        }      
+        } finally {
+            Conexao.desconectar();
+        }   
         
         return list;
          
@@ -199,7 +194,9 @@ public class LivroDAO extends DAO<Livro> {
             
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage()); 
-        }      
+        } finally {
+            Conexao.desconectar();
+        }    
         
         return list;
     

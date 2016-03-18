@@ -3,13 +3,13 @@ package testebdoo;
 import model.LivroBDOOFacade;
 import util.Cronometro;
 
-public class TesteBDOO1000Insert {
+public class TesteBDOOSelectAll {
 
     public static void main(String[] args) {
 
-        Cronometro crn = LivroBDOOFacade.testeInsert(1000);
+        Cronometro crn = LivroBDOOFacade.testeSelectAll();
         System.out.println(crn.toString());
-
+        
     }
-
+    
 }
