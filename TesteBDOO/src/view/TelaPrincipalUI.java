@@ -5,12 +5,18 @@
  */
 package view;
 
+import model.LivroBDOOFacade;
+import model.LivroBDRLFacade;
+import util.Cronometro;
+
 /**
  *
  * @author Francisco
  */
 public class TelaPrincipalUI extends javax.swing.JFrame {
 
+    TempoTeste tempoTesteBDOO = new TempoTeste();
+    TempoTeste tempoTesteBDRL = new TempoTeste();
     /**
      * Creates new form TelaPrincipal
      */
@@ -27,33 +33,378 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        btn_delete_dboo = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btn_insert_bdoo = new javax.swing.JButton();
+        btn_select_dboo = new javax.swing.JButton();
+        btn_update_dboo = new javax.swing.JButton();
+        btn_delete_bdrl = new javax.swing.JButton();
+        btn_insert_bdrl = new javax.swing.JButton();
+        btn_select_bdrl = new javax.swing.JButton();
+        btn_update_bdrl = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txt_tempo_update_dboo = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txt_quantidade = new javax.swing.JTextField();
+        txt_tempo_insert_dboo = new javax.swing.JTextField();
+        txt_tempo_select_dboo = new javax.swing.JTextField();
+        txt_tempo_delete_dboo = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txt_tempo_insert_dbrl = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txt_tempo_select_dbrl = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txt_tempo_update_dbrl = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txt_tempo_delete_dbrl = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        btn_limpar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
         setResizable(false);
 
-        jButton1.setText("jButton1");
+        btn_delete_dboo.setText("Delete");
+        btn_delete_dboo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_delete_dbooActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Banco de dados Orientado a Objetos:");
+
+        btn_insert_bdoo.setText("Insert");
+        btn_insert_bdoo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_insert_bdooActionPerformed(evt);
+            }
+        });
+
+        btn_select_dboo.setText("Select");
+        btn_select_dboo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_select_dbooActionPerformed(evt);
+            }
+        });
+
+        btn_update_dboo.setText("Update");
+        btn_update_dboo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_update_dbooActionPerformed(evt);
+            }
+        });
+
+        btn_delete_bdrl.setText("Delete");
+        btn_delete_bdrl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_delete_bdrlActionPerformed(evt);
+            }
+        });
+
+        btn_insert_bdrl.setText("Insert");
+        btn_insert_bdrl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_insert_bdrlActionPerformed(evt);
+            }
+        });
+
+        btn_select_bdrl.setText("Select");
+        btn_select_bdrl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_select_bdrlActionPerformed(evt);
+            }
+        });
+
+        btn_update_bdrl.setText("Update");
+        btn_update_bdrl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_update_bdrlActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Banco de dados Relacional:");
+
+        txt_tempo_update_dboo.setEditable(false);
+
+        jLabel3.setText("Quantidade de registros:");
+
+        txt_quantidade.setText("1000");
+
+        txt_tempo_insert_dboo.setEditable(false);
+        txt_tempo_insert_dboo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_tempo_insert_dbooActionPerformed(evt);
+            }
+        });
+
+        txt_tempo_select_dboo.setEditable(false);
+
+        txt_tempo_delete_dboo.setEditable(false);
+
+        jLabel4.setText("Tempo:");
+
+        jLabel5.setText("Tempo:");
+
+        jLabel6.setText("Tempo:");
+
+        jLabel7.setText("Tempo:");
+
+        txt_tempo_insert_dbrl.setEditable(false);
+        txt_tempo_insert_dbrl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_tempo_insert_dbrlActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Tempo:");
+
+        txt_tempo_select_dbrl.setEditable(false);
+
+        jLabel9.setText("Tempo:");
+
+        txt_tempo_update_dbrl.setEditable(false);
+
+        jLabel10.setText("Tempo:");
+
+        txt_tempo_delete_dbrl.setEditable(false);
+
+        jLabel11.setText("Tempo:");
+
+        btn_limpar.setText("Limpa Tudo");
+        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jButton1)
-                .addContainerGap(558, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_limpar, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_tempo_delete_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(btn_delete_dboo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_update_dboo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_select_dboo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_insert_bdoo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_tempo_insert_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_tempo_select_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txt_tempo_update_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel9)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txt_tempo_select_dbrl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btn_insert_bdrl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel8)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txt_tempo_insert_dbrl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btn_select_bdrl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btn_update_bdrl, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txt_tempo_update_dbrl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn_delete_bdrl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_tempo_delete_dbrl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(jButton1)
-                .addContainerGap(183, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(txt_quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_limpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_insert_bdoo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_insert_bdrl, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_tempo_insert_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txt_tempo_insert_dbrl, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_select_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_select_bdrl, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_tempo_select_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(txt_tempo_select_dbrl, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_update_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_update_bdrl, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_tempo_update_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(txt_tempo_update_dbrl, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_delete_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_delete_bdrl, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_tempo_delete_dboo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(txt_tempo_delete_dbrl, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_delete_dbooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delete_dbooActionPerformed
+
+        int qtd = Integer.parseInt(txt_quantidade.getText());
+        Cronometro crn = LivroBDOOFacade.testeDelete(qtd);
+        tempoTesteBDOO.setTempoDelete(crn);
+        txt_tempo_delete_dboo.setText(tempoTesteBDOO.getTempoDelete().tempoTotalToDate());
+        
+    }//GEN-LAST:event_btn_delete_dbooActionPerformed
+
+    private void btn_insert_bdooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insert_bdooActionPerformed
+
+        int qtd = Integer.parseInt(txt_quantidade.getText());
+        Cronometro crn = LivroBDOOFacade.testeInsert(qtd);
+        tempoTesteBDOO.setTempoInsert(crn);
+        txt_tempo_insert_dboo.setText(tempoTesteBDOO.getTempoInsert().tempoTotalToDate());
+
+    }//GEN-LAST:event_btn_insert_bdooActionPerformed
+
+    private void btn_select_dbooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_dbooActionPerformed
+
+        int qtd = Integer.parseInt(txt_quantidade.getText());
+        Cronometro crn = LivroBDOOFacade.testeSelect(qtd);
+        tempoTesteBDOO.setTempoSelect(crn);
+        txt_tempo_select_dboo.setText(tempoTesteBDOO.getTempoSelect().tempoTotalToDate());
+        
+    }//GEN-LAST:event_btn_select_dbooActionPerformed
+
+    private void btn_update_dbooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_update_dbooActionPerformed
+
+        int qtd = Integer.parseInt(txt_quantidade.getText());
+        Cronometro crn = LivroBDOOFacade.testeUpdate(qtd);
+        tempoTesteBDOO.setTempoUpdate(crn);
+        txt_tempo_update_dboo.setText(tempoTesteBDOO.getTempoUpdate().tempoTotalToDate());
+        
+    }//GEN-LAST:event_btn_update_dbooActionPerformed
+
+    private void btn_delete_bdrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_delete_bdrlActionPerformed
+
+        int qtd = Integer.parseInt(txt_quantidade.getText());
+        Cronometro crn = LivroBDRLFacade.testeDelete(qtd);
+        tempoTesteBDRL.setTempoDelete(crn);
+        txt_tempo_delete_dbrl.setText(tempoTesteBDRL.getTempoDelete().tempoTotalToDate());
+        
+    }//GEN-LAST:event_btn_delete_bdrlActionPerformed
+
+    private void btn_insert_bdrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_insert_bdrlActionPerformed
+
+        int qtd = Integer.parseInt(txt_quantidade.getText());
+        Cronometro crn = LivroBDRLFacade.testeInsert(qtd);
+        tempoTesteBDRL.setTempoInsert(crn);
+        txt_tempo_insert_dbrl.setText(tempoTesteBDRL.getTempoInsert().tempoTotalToDate());
+        
+    }//GEN-LAST:event_btn_insert_bdrlActionPerformed
+
+    private void btn_select_bdrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_bdrlActionPerformed
+
+        int qtd = Integer.parseInt(txt_quantidade.getText());
+        Cronometro crn = LivroBDRLFacade.testeSelect(qtd);
+        tempoTesteBDRL.setTempoSelect(crn);
+        txt_tempo_select_dbrl.setText(tempoTesteBDRL.getTempoSelect().tempoTotalToDate());
+        
+    }//GEN-LAST:event_btn_select_bdrlActionPerformed
+
+    private void btn_update_bdrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_update_bdrlActionPerformed
+
+        int qtd = Integer.parseInt(txt_quantidade.getText());
+        Cronometro crn = LivroBDRLFacade.testeUpdate(qtd);
+        tempoTesteBDRL.setTempoUpdate(crn);
+        txt_tempo_update_dbrl.setText(tempoTesteBDRL.getTempoUpdate().tempoTotalToDate());
+        
+    }//GEN-LAST:event_btn_update_bdrlActionPerformed
+
+    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
+
+        tempoTesteBDOO = new TempoTeste();
+        tempoTesteBDRL = new TempoTeste();
+        
+        txt_quantidade.setText("1000");
+        
+        //Limpar campos banco de dados OO
+        txt_tempo_insert_dboo.setText("");
+        txt_tempo_select_dboo.setText("");
+        txt_tempo_update_dboo.setText("");
+        txt_tempo_delete_dboo.setText("");
+
+        //Limpar campos banco de dados relacional
+        txt_tempo_insert_dbrl.setText("");
+        txt_tempo_select_dbrl.setText("");
+        txt_tempo_update_dbrl.setText("");
+        txt_tempo_delete_dbrl.setText("");
+        
+    }//GEN-LAST:event_btn_limparActionPerformed
+
+    private void txt_tempo_insert_dbooActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tempo_insert_dbooActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_tempo_insert_dbooActionPerformed
+
+    private void txt_tempo_insert_dbrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_tempo_insert_dbrlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_tempo_insert_dbrlActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,6 +443,34 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_delete_bdrl;
+    private javax.swing.JButton btn_delete_dboo;
+    private javax.swing.JButton btn_insert_bdoo;
+    private javax.swing.JButton btn_insert_bdrl;
+    private javax.swing.JButton btn_limpar;
+    private javax.swing.JButton btn_select_bdrl;
+    private javax.swing.JButton btn_select_dboo;
+    private javax.swing.JButton btn_update_bdrl;
+    private javax.swing.JButton btn_update_dboo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField txt_quantidade;
+    private javax.swing.JTextField txt_tempo_delete_dboo;
+    private javax.swing.JTextField txt_tempo_delete_dbrl;
+    private javax.swing.JTextField txt_tempo_insert_dboo;
+    private javax.swing.JTextField txt_tempo_insert_dbrl;
+    private javax.swing.JTextField txt_tempo_select_dboo;
+    private javax.swing.JTextField txt_tempo_select_dbrl;
+    private javax.swing.JTextField txt_tempo_update_dboo;
+    private javax.swing.JTextField txt_tempo_update_dbrl;
     // End of variables declaration//GEN-END:variables
 }
